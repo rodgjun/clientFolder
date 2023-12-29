@@ -1,11 +1,15 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Importing Tailwind CSS */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
+/* Your custom styles */
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --accent-color: 75, 192, 192;
+  --accent-color-alt: 255, 99, 132;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -17,11 +21,106 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
+  /* Base styles */
+  color: rgb(var(--foreground-rgb)); /* Set text color based on foreground color */
+  font-family: 'Roboto', sans-serif; /* Set a preferred font */
+
+  /* Padding and other custom styles */
+  padding: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+
+  /* Background gradient */
   background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    to bottom right,
+    rgb(var(--background-start-rgb)),
+    rgb(var(--background-end-rgb))
+  );
+}
+
+h1, h2 {
+  color: rgb(6, 71, 109);
+}
+
+form {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: rgba(var(--accent-color), 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+select {
+  padding: 0.5rem;
+  font-size: 1rem;
+  width: 100%;
+  border: 1px solid var(--accent-color);
+  border-radius: 4px;
+  background-color: rgba(var(--foreground-rgb), 0.1);
+  color: var(--foreground-rgb);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+th, td {
+  padding: 0.5rem;
+  border: 1px solid rgb(var(--accent-color));
+}
+
+th {
+  background-color: rgba(var(--accent-color), 0.3);
+}
+
+.line-chart {
+  margin-top: 2rem;
+}
+
+/* Custom styling for the plot */
+.canvas-container {
+  background-color: rgba(var(--accent-color), 0.1);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+/* Additional styling for accuracy metrics */
+.accuracy-metrics {
+  margin-top: 2rem;
+}
+
+/* Styling for the Accuracy Metrics table */
+.accuracy-metrics table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.accuracy-metrics th, .accuracy-metrics td {
+  padding: 0.5rem;
+  border: 1px solid rgb(var(--accent-color-alt));
+}
+
+.accuracy-metrics th {
+  background-color: rgba(var(--accent-color-alt), 0.3);
+}
+
+button {
+  display: block;
+  margin: auto;
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+  font-size: 1.25rem;
+  background-color: var(--accent-color);
+  color: var(--foreground-rgb);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: #145364; /* A slightly darker shade for hover effect */
 }
